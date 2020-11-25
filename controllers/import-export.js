@@ -68,7 +68,7 @@ module.exports = {
     let success = true;
     const data = ctx.request.body;
     try {
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; data && data instanceof Array && i < data.length; i++) {
         const key = data[i].key;
         const value = data[i].value;
         // If the type is null then continue.
