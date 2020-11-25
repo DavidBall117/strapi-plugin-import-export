@@ -72,7 +72,9 @@ module.exports = {
         const key = data[i].key;
         const value = data[i].value;
         // If the type is null then continue.
-        const info = await strapi.services[key].find();
+        const info = strapi.services.hasOwnProperty(key)
+          ? await strapi.services[key].find()
+          : null;
         if (info === null) continue;
         // Collection Type
         if (
