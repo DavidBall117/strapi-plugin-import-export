@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "import-export.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/raw-data",
+      "handler": "import-export.getRawData",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/raw-data",
+      "handler": "import-export.postRawData",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
