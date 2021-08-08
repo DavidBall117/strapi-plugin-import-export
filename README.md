@@ -1,4 +1,4 @@
-# Strapi plugin import-export
+# strapi-plugin-import-export
 
 ## Installation Guide
 
@@ -6,8 +6,9 @@
 2. Navigate to your plugins directory: `cd plugins`
 3. Clone the plugin from its repo: `git clone https://github.com/DavidBall117/strapi-plugin-import-export.git import-export`
 4. Navigate back to your strapi project's root directory: `cd ..`
-5. Rebuild your admin UI and run the project: `yarn build && yarn develop`
+5. Rebuild your admin UI to add the new plugin to the admin panel and run the project: `yarn build && yarn develop`
 
-## Bugs/TODO
-- [ ] TypeError: strapi.notification.toggle is not a function
-- [ ] User needs to know when the upload fails due to the single type not being published OR publish the single type with the data given.
+## Notes
+
+- You can use the `strapi generate:plugin <plugin-name>` utility to generate a local plugin.
+- Reference [developer docs](https://strapi.io/documentation/developer-docs/latest/development/local-plugins-customization.html) for more information.

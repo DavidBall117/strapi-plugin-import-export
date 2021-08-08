@@ -1,20 +1,20 @@
 {
   "name": "strapi-plugin-import-export",
-  "version": "0.1.0",
-  "description": "Ability to export and import data sets.",
+  "version": "1.0.0",
+  "description": "Ability to import and export data.",
   "license": "MIT",
+  "strapi": {
+    "name": "import-export",
+    "icon": "plug",
+    "description": "Ability to import and export data."
+  },
   "author": {
     "name": "David Ball",
     "url": "https://github.com/DavidBall117"
   },
-  "strapi": {
-    "name": "import-export",
-    "icon": "plug",
-    "description": "Ability to export and import data sets."
-  },
-  "dependencies": {},
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
     "npm": ">=6.0.0"
-  }
+  },
+  "dependencies": {}
 }

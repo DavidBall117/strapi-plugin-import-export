@@ -5,7 +5,7 @@ const MasterLayout = (props) => {
   return (
     <div style={{ padding: "18px 30px" }}>
       <Navigation />
-      <div style={{ padding: "0 15px" }}>{props.children}</div>
+      <div>{props.children}</div>
     </div>
   );
 };

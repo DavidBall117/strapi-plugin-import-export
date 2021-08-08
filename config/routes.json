@@ -2,14 +2,6 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/",
-      "handler": "import-export.index",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
       "path": "/raw-data",
       "handler": "import-export.getRawData",
       "config": {
