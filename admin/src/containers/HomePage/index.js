@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from "react";
-import { Select, Button, Textarea, InputText } from "@buffetjs/core";
+import { Select, Button, Textarea, InputText, Checkbox } from "@buffetjs/core";
 
 import MasterLayout from "../../components/MasterLayout";
 import Row from "../../components/Row";
@@ -12,24 +12,38 @@ const HomePage = () => {
   const {
     getDefaultFileName,
     loading,
+    removeStrapiProperties,
+    removeMedia,
     sources,
     source,
     setSource,
     fileName,
     setFileName,
     dataString,
+    onSetRemoveStrapiPropertiesChange,
+    onSetRemoveMedia,
     fetchSources,
     fetchSourceData,
     downloadSourceData
   } = useHomePage();
 
-  useEffect(() => {
-    fetchSources();
-  }, []);
+  useEffect(fetchSources, []);
 
   return (
     <MasterLayout>
       {loading && <LoadingOverlay />}
+      <Row>
+        <Checkbox
+          message="Remove Strapi Properties"
+          onChange={({ target }) => onSetRemoveStrapiPropertiesChange(target.value)}
+          value={removeStrapiProperties}
+        />
+        <Checkbox
+          message="Remove Media (images, videos, files)"
+          onChange={({ target }) => onSetRemoveMedia(target.value)}
+          value={removeMedia}
+        />
+      </Row>
       <Row>
         <Select
           options={sources}

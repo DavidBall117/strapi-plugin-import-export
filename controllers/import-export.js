@@ -1,39 +1,10 @@
 'use strict';
 
-const dbProperties = [
-  'id',
-  'published_at',
-  'created_at',
-  'updated_at',
-  'created_by',
-  'updated_by',
-];
-
-const cleanDbProperties = (obj) => {
-  if (Array.isArray(obj)) {
-    obj.forEach((item) => {
-      cleanDbProperties(item);
-    });
-  } else if (obj !== null && typeof obj === 'object') {
-    Object.getOwnPropertyNames(obj).forEach((key) => {
-      if (dbProperties.indexOf(key) !== -1) {
-        delete obj[key];
-      } else {
-        cleanDbProperties(obj[key]);
-      }
-    });
-  }
-};
-
 module.exports = {
   getRawData: async (ctx) => {
-    let responseData = [];
-    // If no source given as a query parameter, return empty array.
-    if (!ctx.query.source) {
-      return ctx.send(data);
-    }
-    // If source is all, fetch all data, else fetch source data.
-    if (ctx.query.source.toLocaleLowerCase() === 'all') {
+    const responseData = [];
+    // If source is all, fetch all data, else fetch specific source data.
+    if (ctx.query.source && ctx.query.source.toLocaleLowerCase() === 'all') {
       const keys = Object.keys(strapi.services);
       for (let i = 0; i < keys.length; i++) {
         const res = await strapi.services[keys[i]].find();
@@ -42,15 +13,13 @@ module.exports = {
           value: res,
         });
       }
-    } else {
+    } else if (ctx.query.source) {
       const value = await strapi.services[ctx.query.source].find();
       responseData.push({
         key: ctx.query.source,
         value,
       });
     }
-    // Clean db properties from data and return.
-    cleanDbProperties(responseData);
     return ctx.send(responseData);
   },
 
