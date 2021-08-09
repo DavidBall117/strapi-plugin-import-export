@@ -9,21 +9,21 @@ import ImportPage from "../ImportPage";
 
 const App = () => {
   return (
-      <Switch>
-        <Route
-          path={`/plugins/${pluginId}`}
-          component={HomePage}
-          exact
-        />
-        <Route
-          path={`/plugins/${pluginId}/import`}
-          component={ImportPage}
-          exact
-        />
-        <Route
-          component={NotFound}
-        />
-      </Switch>
+    <Switch>
+      <Route
+        path={`/plugins/${pluginId}`}
+        component={HomePage}
+        exact
+      />
+      <Route
+        path={`/plugins/${pluginId}/import`}
+        component={ImportPage}
+        exact
+      />
+      <Route
+        component={NotFound}
+      />
+    </Switch>
   );
 };
 
