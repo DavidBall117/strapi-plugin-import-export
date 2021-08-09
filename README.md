@@ -13,3 +13,10 @@
 - You can use the `strapi generate:plugin <plugin-name>` utility to generate a local plugin.
 - Reference [developer docs](https://strapi.io/documentation/developer-docs/latest/development/local-plugins-customization.html) for more information.
 - To enable local plugin development start application with: `yarn develop --watch-admin`
+
+## TODO
+
+- [ ] Use string tables for hard-coded text.
+- [ ] Update/create unpublished single types.
+- [ ] Complete remove media from data functionality.
+- [ ] Add unit tests and snapshot tests with jest.
