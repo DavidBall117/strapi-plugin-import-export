@@ -35,17 +35,20 @@ const HomePage = () => {
       <Row>
         <Checkbox
           message="Remove Strapi Properties"
+          name="RemoveStrapiPropertiesCheckbox"
           onChange={({ target }) => onSetRemoveStrapiPropertiesChange(target.value)}
           value={removeStrapiProperties}
         />
         <Checkbox
           message="Remove Media (images, videos, files)"
+          name="RemoveMediaCheckbox"
           onChange={({ target }) => onSetRemoveMedia(target.value)}
           value={removeMedia}
         />
       </Row>
       <Row>
         <Select
+          name="SourceSelect"
           options={sources}
           value={source}
           onChange={({ target: { value } }) => setSource(value)}
@@ -63,6 +66,7 @@ const HomePage = () => {
       {dataString !== '' && (
         <Row>
           <InputText
+            name="FileNameInputText"
             type="text"
             value={fileName}
             onChange={({ target: { value } }) => setFileName(value)}
@@ -78,6 +82,7 @@ const HomePage = () => {
       {dataString !== '' && (
         <Row>
           <Textarea
+            name="DataStringTextarea"
             className="text-area"
             disabled={true}
             value={dataString}

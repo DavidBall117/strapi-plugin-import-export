@@ -23,7 +23,6 @@ const Navigation = () => {
             to: getUrl("import"),
           },
         ]}
-        style={{ marginTop: "4.4rem" }}
       />
     </>
   );

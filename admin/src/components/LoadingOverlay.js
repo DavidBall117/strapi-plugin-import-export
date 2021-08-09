@@ -1,24 +1,25 @@
 import React, { memo } from "react";
 import { LoadingIndicator } from "strapi-helper-plugin";
+import styled from "styled-components";
 
 const LoadingOverlay = () => {
+  const LoadingContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000099;
+    z-index: 9999;
+  `;
+
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#00000099",
-        zIndex: 9999,
-      }}
-    >
+    <LoadingContainer>
       <LoadingIndicator />
-    </div>
+    </LoadingContainer>
   );
 };
 

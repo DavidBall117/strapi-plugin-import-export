@@ -76,6 +76,9 @@ export default () => {
         if (bool) {
             cleanStrapiProperties(dataCopy);
         }
+        if (removeMedia) {
+            cleanMedia(dataCopy);
+        }
         setDataString(JSON.stringify(dataCopy, null, 2));
     };
 
@@ -84,6 +87,9 @@ export default () => {
         const dataCopy = JSON.parse(JSON.stringify(data));
         if (bool) {
             cleanMedia(dataCopy);
+        }
+        if (removeStrapiProperties) {
+            cleanStrapiProperties(dataCopy);
         }
         setDataString(JSON.stringify(dataCopy, null, 2));
     };

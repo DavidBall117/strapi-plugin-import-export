@@ -1,12 +1,17 @@
 import React, { memo } from "react";
 import Navigation from "./Navigation";
+import styled from "styled-components";
 
 const MasterLayout = (props) => {
+  const MasterLayoutContainer = styled.div`
+    padding: 18px 30px;
+  `;
+
   return (
-    <div style={{ padding: "18px 30px" }}>
+    <MasterLayoutContainer>
       <Navigation />
-      <div>{props.children}</div>
-    </div>
+      {props.children}
+    </MasterLayoutContainer>
   );
 };
 
