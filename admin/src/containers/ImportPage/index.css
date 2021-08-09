@@ -17,10 +17,29 @@
   margin: 2rem;
 }
 
-.button {
+.file-input {
+  display: none;
+}
+
+.file-input-label {
+  width: 200px;
+  height: 30px;
+  border-radius: 2px;
+  border: solid thin rgb(0, 126, 255);
+  color: rgb(0, 126, 255);
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.import-button {
   min-width: 200px !important;
 }
 
-.preview-textarea {
+.import-textarea {
   height: 25vh !important;
 }

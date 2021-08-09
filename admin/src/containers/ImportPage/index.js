@@ -51,25 +51,29 @@ const ImportPage = () => {
             </p>
           )}
           <input
-            name="FileInput"
+            id="FileInput"
             type="file"
             accept=".json"
+            className="file-input"
             onChange={onFileChange}
           />
+          <label htmlFor="FileInput" className="file-input-label">
+            Choose File
+          </label>
         </div>
       </Row>
       <Row>
         <Button
           label="Load File"
           color="primary"
-          className="button"
+          className="import-button"
           disabled={!file}
           onClick={loadFile}
         />
         <Button
           label="Upload File"
           color="success"
-          className="button"
+          className="import-button"
           disabled={!data}
           onClick={uploadFile}
         />
@@ -77,7 +81,7 @@ const ImportPage = () => {
       <Row>
         <Textarea
           name="FilePreviewTextarea"
-          className="preview-textarea"
+          className="import-textarea"
           disabled={true}
           value={data}
         />

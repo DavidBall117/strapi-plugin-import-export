@@ -42,7 +42,8 @@ export default () => {
     const loadFile = async () => {
         try {
             if (file) {
-                setData(await readFileContent(file));
+                const fileContent = await readFileContent(file);
+                setData(fileContent);
             }
         } catch (err) {
             console.error(err);
