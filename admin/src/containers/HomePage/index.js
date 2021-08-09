@@ -39,12 +39,12 @@ const HomePage = () => {
           onChange={({ target }) => onSetRemoveStrapiPropertiesChange(target.value)}
           value={removeStrapiProperties}
         />
-        <Checkbox
+        {/* <Checkbox
           message="Remove Media (images, videos, files)"
           name="RemoveMediaCheckbox"
           onChange={({ target }) => onSetRemoveMedia(target.value)}
           value={removeMedia}
-        />
+        /> */}
       </Row>
       <Row>
         <Select
