@@ -48,7 +48,7 @@ export default () => {
 
   const [loading, setLoading] = useState(false);
   const [removeStrapiProperties, setRemoveStrapiProperties] = useState(true);
-  const [removeMedia, setRemoveMedia] = useState(false);
+  const [removeMedia, setRemoveMedia] = useState(true);
   const [sources, setSources] = useState([{ label: 'all', value: 'all' }]);
   const [source, setSource] = useState('all');
   const [fileName, setFileName] = useState(getDefaultFileName());
@@ -56,23 +56,103 @@ export default () => {
   const [dataString, setDataString] = useState('');
 
   const cleanStrapiProperties = (obj) => {
-    if (Array.isArray(obj)) {
-      obj.forEach((item) => {
-        cleanStrapiProperties(item);
+    try {
+      if (Array.isArray(obj)) {
+        obj.forEach((item) => cleanStrapiProperties(item));
+      } else if (obj && typeof obj === 'object') {
+        Object.getOwnPropertyNames(obj).forEach((key) => {
+          if (strapiProperties.indexOf(key) !== -1) {
+            delete obj[key];
+          } else {
+            cleanStrapiProperties(obj[key]);
+          }
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      strapi.notification.toggle({
+        type: 'warning',
+        message: intl.formatMessage({ id: 'import-export.notification.warning.remove-strapi-properties' })
       });
+    }
+  };
+
+  const isMedia = (obj) => {
+    let result = false;
+    if (obj && typeof obj === 'object') {
+      const propertyNames = Object.getOwnPropertyNames(obj);
+      for (let i = 0; i < propertyNames.length; i++) {
+        result = mediaProperties.indexOf(propertyNames[i]) !== -1;
+      }
+    }
+    return result;
+  };
+
+  const isEmptyObject = (obj) => {
+    return obj
+      && !Array.isArray(obj)
+      && typeof obj === 'object'
+      && Object.keys(obj).length === 0;
+  };
+
+  const cleanMediaSetObjectsEmpty = (obj) => {
+    if (Array.isArray(obj)) {
+      obj.forEach((item) => cleanMediaSetObjectsEmpty(item));
     } else if (obj && typeof obj === 'object') {
       Object.getOwnPropertyNames(obj).forEach((key) => {
-        if (strapiProperties.indexOf(key) !== -1) {
+        if (isMedia(obj)) {
           delete obj[key];
         } else {
-          cleanStrapiProperties(obj[key]);
+          cleanMediaSetObjectsEmpty(obj[key]);
         }
       });
     }
   };
 
+  const cleanMediaEmptyObjects = (obj) => {
+    if (Array.isArray(obj)) {
+      obj.forEach((item) => cleanMediaEmptyObjects(item));
+    } else if (obj && typeof obj === 'object') {
+      Object.getOwnPropertyNames(obj).forEach((key) => {
+        if (isEmptyObject(obj[key])) {
+          obj[key] = null;
+        } else {
+          cleanMediaEmptyObjects(obj[key])
+        }
+      });
+    }
+  };
+
+  const cleanMediaEmptyArrays = (obj) => {
+    if (Array.isArray(obj)) {
+      let emptyArr = false;
+      for (let i = 0; i < obj.length; i++) {
+        emptyArr = isEmptyObject(obj[i]);
+      }
+      if (emptyArr) {
+        obj.splice(0, obj.length);
+      } else {
+        obj.forEach((item) => cleanMediaEmptyArrays(item));
+      }
+    } else if (obj && typeof obj === 'object') {
+      Object.getOwnPropertyNames(obj).forEach((key) => {
+        cleanMediaEmptyArrays(obj[key]);
+      });
+    }
+  };
+
   const cleanMedia = (obj) => {
-    // TODO
+    try {
+      cleanMediaSetObjectsEmpty(obj);
+      cleanMediaEmptyArrays(obj);
+      cleanMediaEmptyObjects(obj);
+    } catch (err) {
+      console.error(err);
+      strapi.notification.toggle({
+        type: 'warning',
+        message: intl.formatMessage({ id: 'import-export.notification.warning.remove-media' })
+      });
+    }
   };
 
   const onSetRemoveStrapiPropertiesChange = (bool) => {
@@ -93,11 +173,11 @@ export default () => {
     setRemoveMedia(bool);
     if (data.length > 0) {
       const dataCopy = JSON.parse(JSON.stringify(data));
-      if (bool) {
-        cleanMedia(dataCopy);
-      }
       if (removeStrapiProperties) {
         cleanStrapiProperties(dataCopy);
+      }
+      if (bool) {
+        cleanMedia(dataCopy);
       }
       setDataString(JSON.stringify(dataCopy, null, 2));
     }

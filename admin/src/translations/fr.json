@@ -15,6 +15,8 @@
   "import.upload-file": "Téléverser un fichier",
   "notification.warning.fetch-sources": "Une erreur s'est produite lors de la récupération des sources de données.",
   "notification.warning.fetch-source-data": "Une erreur s'est produite lors de la récupération des données source.",
+  "notification.warning.remove-strapi-properties": "Une erreur s'est produite lors de la suppression des propriétés strapi des données.",
+  "notification.warning.remove-media": "Une erreur s'est produite lors de la suppression du support des données.",
   "notification.success.save": "Téléchargement réussi.",
   "notification.warning.error": "Erreur: ",
   "notification.warning.save": "Une erreur s'est produite lors de l'enregistrement du fichier de données dans la base de données.",

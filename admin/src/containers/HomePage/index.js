@@ -43,12 +43,12 @@ const HomePage = () => {
           onChange={({ target }) => onSetRemoveStrapiPropertiesChange(target.value)}
           value={removeStrapiProperties}
         />
-        {/* <Checkbox
+        <Checkbox
           message={intl.formatMessage({ id: 'import-export.export.remove-media-properties' })}
           name="RemoveMediaCheckbox"
           onChange={({ target }) => onSetRemoveMedia(target.value)}
           value={removeMedia}
-        /> */}
+        />
       </Row>
       <Row>
         <Select

@@ -19,7 +19,3 @@ When importing data for single types the single type needs to be published befor
 - You can use the `strapi generate:plugin <plugin-name>` utility to generate a local plugin.
 - Reference [developer docs](https://strapi.io/documentation/developer-docs/latest/development/local-plugins-customization.html) for more information.
 - To enable local plugin development start application with: `yarn develop --watch-admin`
-
-## TODO
-
-- [ ] Complete remove media from data functionality.
