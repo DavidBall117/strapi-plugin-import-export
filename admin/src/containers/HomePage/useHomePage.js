@@ -40,7 +40,7 @@ export default () => {
     const ext = '.json';
     const now = new Date();
     const date = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-    return sourceName ? `${name}-${sourceName.toLocaleLowerCase()}${ext}_${date}` : `${name}${ext}_${date}`;
+    return sourceName ? `${name}-${sourceName}_${date}${ext}` : `${name}_${date}${ext}`;
   };
 
   const [loading, setLoading] = useState(false);
