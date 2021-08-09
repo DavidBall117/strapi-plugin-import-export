@@ -16,5 +16,4 @@
 
 ## TODO
 
-- [ ] Update/create unpublished single types.
 - [ ] Complete remove media from data functionality.

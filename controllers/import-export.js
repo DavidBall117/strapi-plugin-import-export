@@ -32,18 +32,8 @@ module.exports = {
       for (let i = 0; data && Array.isArray(data) && i < data.length; i++) {
         const key = data[i].key;
         const value = data[i].value;
-        // If the type is null then continue.
-        const info = strapi.services.hasOwnProperty(key)
-          ? await strapi.services[key].find()
-          : null;
-        if (info === null) {
-          continue;
-        }
         // Collection Type
-        if (
-          strapi.services.hasOwnProperty(key) &&
-          strapi.services[key].create
-        ) {
+        if (strapi.services.hasOwnProperty(key) && strapi.services[key].create) {
           if (Array.isArray(value)) {
             for (const item of value) {
               await strapi.services[key].create(item);
@@ -53,10 +43,7 @@ module.exports = {
           }
         }
         // Single Type
-        else if (
-          strapi.services.hasOwnProperty(key) &&
-          strapi.services[key].createOrUpdate
-        ) {
+        else if (strapi.services.hasOwnProperty(key) && strapi.services[key].createOrUpdate) {
           await strapi.services[key].createOrUpdate(value);
         }
       }
