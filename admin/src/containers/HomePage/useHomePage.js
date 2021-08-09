@@ -74,26 +74,30 @@ export default () => {
 
     const onSetRemoveStrapiPropertiesChange = (bool) => {
         setRemoveStrapiProperties(bool);
-        const dataCopy = JSON.parse(JSON.stringify(data));
-        if (bool) {
-            cleanStrapiProperties(dataCopy);
+        if (data.length > 0) {
+            const dataCopy = JSON.parse(JSON.stringify(data));
+            if (bool) {
+                cleanStrapiProperties(dataCopy);
+            }
+            if (removeMedia) {
+                cleanMedia(dataCopy);
+            }
+            setDataString(JSON.stringify(dataCopy, null, 2));
         }
-        if (removeMedia) {
-            cleanMedia(dataCopy);
-        }
-        setDataString(JSON.stringify(dataCopy, null, 2));
     };
 
     const onSetRemoveMedia = (bool) => {
         setRemoveMedia(bool);
-        const dataCopy = JSON.parse(JSON.stringify(data));
-        if (bool) {
-            cleanMedia(dataCopy);
+        if (data.length > 0) {
+            const dataCopy = JSON.parse(JSON.stringify(data));
+            if (bool) {
+                cleanMedia(dataCopy);
+            }
+            if (removeStrapiProperties) {
+                cleanStrapiProperties(dataCopy);
+            }
+            setDataString(JSON.stringify(dataCopy, null, 2));
         }
-        if (removeStrapiProperties) {
-            cleanStrapiProperties(dataCopy);
-        }
-        setDataString(JSON.stringify(dataCopy, null, 2));
     };
 
     const isValidSource = (fetchedSource) => {
