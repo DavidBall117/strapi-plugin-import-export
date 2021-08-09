@@ -27,7 +27,9 @@ const HomePage = () => {
     downloadSourceData
   } = useHomePage();
 
-  useEffect(fetchSources, []);
+  useEffect(() => {
+    fetchSources();
+  }, []);
 
   return (
     <MasterLayout>
