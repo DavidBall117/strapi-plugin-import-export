@@ -2,7 +2,7 @@
 
 ## Overview
 
-A strapi plugin for importing and exporting data to assist with migrations.
+A strapi plugin for importing and exporting data to assist with migrations and facilitate backups.
 
 ## Installation Guide
 
