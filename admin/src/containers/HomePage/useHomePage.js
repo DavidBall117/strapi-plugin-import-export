@@ -99,7 +99,6 @@ export default () => {
     };
 
     const fetchSources = async () => {
-        setLoading(true);
         try {
             const response = await request('/content-type-builder/content-types', { method: 'GET' });
             const fetchedSources = [];
@@ -119,7 +118,6 @@ export default () => {
                 message: 'An error occured while fetching data sources.'
             });
         }
-        setLoading(false);
     };
 
     const fetchSourceData = async () => {
