@@ -10,13 +10,6 @@ const Navigation = () => {
       <PluginHeader
         title={intl.formatMessage({ id: 'import-export.app.title' })}
         description={intl.formatMessage({ id: 'import-export.app.description' })}
-        actions={[
-          {
-            label: 'import-export.app.action.single-type-button',
-            primary: true,
-            onClick: () => alert(`${intl.formatMessage({ id: 'import-export.app.action.single-type-info' })}`)
-          }
-        ]}
       />
       <HeaderNav
         links={[

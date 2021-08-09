@@ -1,8 +1,6 @@
 {
   "app.title": "Import / Export",
   "app.description": "Import & export single types and collection types.",
-  "app.action.single-type-button": "Importing Single Types",
-  "app.action.single-type-info": "Single types need to be published before data can be imported properly.",
   "link.export": "Export Data",
   "link.import": "Import Data",
   "export.remove-strapi-properties": "Remove Strapi Properties",
