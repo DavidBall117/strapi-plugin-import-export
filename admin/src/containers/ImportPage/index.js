@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import { Button, Textarea } from "@buffetjs/core";
+import { useIntl } from "react-intl";
 
 import MasterLayout from "../../components/MasterLayout";
 import Row from "../../components/Row";
@@ -11,6 +12,7 @@ import useImportPage from "./useImportPage";
 import "./index.css";
 
 const ImportPage = () => {
+  const intl = useIntl();
   const {
     loading,
     file,
@@ -47,7 +49,7 @@ const ImportPage = () => {
             </p>
           ) : (
             <p>
-              Drag and drop your file into this area or choose which file to upload.
+              {intl.formatMessage({ id: 'import-export.import.message' })}
             </p>
           )}
           <input
@@ -58,20 +60,20 @@ const ImportPage = () => {
             onChange={onFileChange}
           />
           <label htmlFor="FileInput" className="file-input-label">
-            Choose File
+            {intl.formatMessage({ id: 'import-export.import.choose-file' })}
           </label>
         </div>
       </Row>
       <Row>
         <Button
-          label="Load File"
+          label={intl.formatMessage({ id: 'import-export.import.load-file' })}
           color="primary"
           className="import-button"
           disabled={!file}
           onClick={loadFile}
         />
         <Button
-          label="Upload File"
+          label={intl.formatMessage({ id: 'import-export.import.upload-file' })}
           color="success"
           className="import-button"
           disabled={!data}

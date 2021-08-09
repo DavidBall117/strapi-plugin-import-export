@@ -1,1 +1,21 @@
-{}
+{
+  "app.title": "Importer / Exporter",
+  "app.description": "Importer et exporter des types uniques et des types de collection.",
+  "link.export": "Exporter des données",
+  "link.import": "Importer des données",
+  "export.remove-strapi-properties": "Supprimer les propriétés de Strapi",
+  "export.remove-media-properties": "Supprimer les médias (images, vidéos, fichiers)",
+  "export.fetch-data": "Récupérer des données",
+  "export.download-data": "Télécharger les données",
+  "import.message": "Faites glisser et déposez votre fichier dans cette zone ou choisissez le fichier à télécharger.",
+  "import.choose-file": "Choisir le fichier",
+  "import.load-file": "Fichier de chargement",
+  "import.upload-file": "Téléverser un fichier",
+  "notification.warning.fetch-sources": "Une erreur s'est produite lors de la récupération des sources de données.",
+  "notification.warning.fetch-source-data": "Une erreur s'est produite lors de la récupération des données source.",
+  "notification.success.save": "Téléchargement réussi.",
+  "notification.warning.error": "Erreur: ",
+  "notification.warning.save": "Une erreur s'est produite lors de l'enregistrement du fichier de données dans la base de données.",
+  "notification.warning.upload": "Une erreur s'est produite lors de la soumission des données au point de terminaison.",
+  "notification.warning.file": "Une erreur s'est produite lors de la tentative de lecture du fichier d'entrée."
+}

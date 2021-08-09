@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { request } from "strapi-helper-plugin";
+import { useIntl } from "react-intl";
 
 export default () => {
+  const intl = useIntl();
+
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -49,7 +52,7 @@ export default () => {
       console.error(err);
       strapi.notification.toggle({
         type: 'warning',
-        message: 'An error occured while trying to read the input file.'
+        message: intl.formatMessage({ id: 'import-export.notification.warning.file' })
       });
     }
   };
@@ -65,20 +68,20 @@ export default () => {
       if (response.success) {
         strapi.notification.toggle({
           type: 'success',
-          message: 'Upload successful.'
+          message: intl.formatMessage({ id: 'import-export.notification.success.save' })
         });
       } else {
         strapi.notification.toggle({
           type: 'warning',
-          message: `An error occured while saving data file to database.
-                        ${response.message ? `Error Message: ${response.message}` : ''}`
+          message: `${intl.formatMessage({ id: 'import-export.notification.warning.save' })}
+            ${intl.formatMessage({ id: 'import-export.notification.warning.error' })}${response.message}`
         });
       }
     } catch (err) {
       console.error(err);
       strapi.notification.toggle({
         type: 'warning',
-        message: 'An error occured while submitting data to endpoint.'
+        message: intl.formatMessage({ id: 'import-export.notification.warning.upload' })
       });
     }
     setLoading(false);

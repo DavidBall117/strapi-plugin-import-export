@@ -1,5 +1,6 @@
 import React, { memo, useEffect } from "react";
 import { Select, Button, Textarea, InputText, Checkbox } from "@buffetjs/core";
+import { useIntl } from "react-intl";
 
 import MasterLayout from "../../components/MasterLayout";
 import Row from "../../components/Row";
@@ -9,6 +10,7 @@ import useHomePage from "./useHomePage";
 import "./index.css";
 
 const HomePage = () => {
+  const intl = useIntl();
   const {
     getDefaultFileName,
     loading,
@@ -36,13 +38,13 @@ const HomePage = () => {
       {loading && <LoadingOverlay />}
       <Row>
         <Checkbox
-          message="Remove Strapi Properties"
+          message={intl.formatMessage({ id: 'import-export.export.remove-strapi-properties' })}
           name="RemoveStrapiPropertiesCheckbox"
           onChange={({ target }) => onSetRemoveStrapiPropertiesChange(target.value)}
           value={removeStrapiProperties}
         />
         {/* <Checkbox
-          message="Remove Media (images, videos, files)"
+          message={intl.formatMessage({ id: 'import-export.export.remove-media-properties' })}
           name="RemoveMediaCheckbox"
           onChange={({ target }) => onSetRemoveMedia(target.value)}
           value={removeMedia}
@@ -56,7 +58,7 @@ const HomePage = () => {
           onChange={({ target: { value } }) => setSource(value)}
         />
         <Button
-          label="Fetch Data"
+          label={intl.formatMessage({ id: 'import-export.export.fetch-data' })}
           color="primary"
           className="button"
           onClick={() => {
@@ -74,7 +76,7 @@ const HomePage = () => {
             onChange={({ target: { value } }) => setFileName(value)}
           />
           <Button
-            label="Download Data"
+            label={intl.formatMessage({ id: 'import-export.export.download-data' })}
             color="success"
             className="button"
             onClick={downloadSourceData}

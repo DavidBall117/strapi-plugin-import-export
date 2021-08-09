@@ -1,1 +1,21 @@
-{}
+{
+  "app.title": "Import / Export",
+  "app.description": "Import & export single types and collection types.",
+  "link.export": "Export Data",
+  "link.import": "Import Data",
+  "export.remove-strapi-properties": "Remove Strapi Properties",
+  "export.remove-media-properties": "Remove Media (images, videos, files)",
+  "export.fetch-data": "Fetch Data",
+  "export.download-data": "Download Data",
+  "import.message": "Drag and drop your file into this area or choose which file to upload.",
+  "import.choose-file": "Choose File",
+  "import.load-file": "Load File",
+  "import.upload-file": "Upload File",
+  "notification.warning.fetch-sources": "An error occurred while fetching data sources.",
+  "notification.warning.fetch-source-data": "An error occurred while fetching source data.",
+  "notification.success.save": "Upload successful.",
+  "notification.warning.error": "Error: ",
+  "notification.warning.save": "An error occurred while saving data file to database.",
+  "notification.warning.upload": "An error occurred while submitting data to the endpoint.",
+  "notification.warning.file": "An error occurred while trying to read the input file."
+}

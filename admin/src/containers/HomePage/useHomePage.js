@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { request } from "strapi-helper-plugin";
+import { useIntl } from "react-intl";
 
 const excludedSources = [
   'admin',
@@ -35,6 +36,8 @@ const mediaProperties = [
 ];
 
 export default () => {
+  const intl = useIntl();
+
   const getDefaultFileName = (sourceName) => {
     const name = 'import-export';
     const ext = '.json';
@@ -121,7 +124,7 @@ export default () => {
       console.error(err);
       strapi.notification.toggle({
         type: 'warning',
-        message: 'An error occured while fetching data sources.'
+        message: intl.formatMessage({ id: 'import-export.notification.warning.fetch-sources' })
       });
     }
   };
@@ -142,7 +145,7 @@ export default () => {
       console.error(err);
       strapi.notification.toggle({
         type: 'warning',
-        message: 'An error occured while fetching source data.'
+        message: intl.formatMessage({ id: 'import-export.notification.warning.fetch-source-data' })
       });
     }
     setLoading(false);

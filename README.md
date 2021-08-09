@@ -16,7 +16,5 @@
 
 ## TODO
 
-- [ ] Use string tables for hard-coded text.
 - [ ] Update/create unpublished single types.
 - [ ] Complete remove media from data functionality.
-- [ ] Add unit tests and snapshot tests with jest.
