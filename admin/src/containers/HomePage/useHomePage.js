@@ -38,7 +38,9 @@ export default () => {
     const getDefaultFileName = (sourceName) => {
         const name = 'import-export';
         const ext = '.json';
-        return sourceName ? `${name}-${sourceName.toLocaleLowerCase()}${ext}` : `${name}${ext}`;
+        const now = new Date();
+        const date = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        return sourceName ? `${name}-${sourceName.toLocaleLowerCase()}${ext}_${date}` : `${name}${ext}_${date}`;
     };
 
     const [loading, setLoading] = useState(false);
