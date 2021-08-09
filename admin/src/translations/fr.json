@@ -1,6 +1,8 @@
 {
   "app.title": "Importer / Exporter",
   "app.description": "Importer et exporter des types uniques et des types de collection.",
+  "app.action.single-type-button": "Importation de types uniques",
+  "app.action.single-type-info": "Les types uniques doivent être publiés avant que les données puissent être importées correctement.",
   "link.export": "Exporter des données",
   "link.import": "Importer des données",
   "export.remove-strapi-properties": "Supprimer les propriétés de Strapi",

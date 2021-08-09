@@ -1,5 +1,11 @@
 # strapi-plugin-import-export
 
+## Overview
+
+A strapi plugin for importing and exporting data to assist with migrations.
+
+When importing data for single types the single type needs to be published beforehand, otherwise the data for the single type will not be saved.
+
 ## Installation Guide
 
 1. If it doesn't exist, create the plugin directory in your Strapi project's root folder: `mkdir plugins`

@@ -39,9 +39,9 @@ const ImportPage = () => {
           onDragOver={handleDragOver}
         >
           <img
-            alt="Upload Icon"
-            className="upload-icon"
             src={UploadIcon}
+            alt=""
+            className="upload-icon"
           />
           {file ? (
             <p>
