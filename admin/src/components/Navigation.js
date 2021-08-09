@@ -9,18 +9,18 @@ const Navigation = () => {
   return (
     <>
       <PluginHeader
-        title={"Import/Export"}
-        description={"Import & export single types and collection types."}
+        title={'Import/Export'}
+        description={'Import & export single types and collection types.'}
       />
       <HeaderNav
         links={[
           {
-            name: "Export Data",
-            to: getUrl(""),
+            name: 'Export Data',
+            to: getUrl(),
           },
           {
-            name: "Import Data",
-            to: getUrl("import"),
+            name: 'Import Data',
+            to: getUrl('import'),
           },
         ]}
       />

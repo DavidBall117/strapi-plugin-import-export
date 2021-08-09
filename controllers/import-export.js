@@ -26,6 +26,7 @@ module.exports = {
   postRawData: async (ctx) => {
     // Upload value(s) based on key, if key exists in strapi services.
     let success = true;
+    let message = '';
     const data = ctx.request.body;
     try {
       for (let i = 0; data && Array.isArray(data) && i < data.length; i++) {
@@ -60,12 +61,14 @@ module.exports = {
         }
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
+      message = err.message;
       success = false;
     }
     // Return whether or not upload was successful.
     return ctx.send({
       success,
+      message
     });
   },
 };

@@ -1,4 +1,26 @@
-.isDragging {
-  background-color: rgba(28, 93, 231, 0.01) !important;
-  border: 2px dashed rgba(28, 93, 231, 0.1) !important;
+.drag-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.is-dragging {
+  background-color: rgba(15, 59, 155, 0.3) !important;
+  border: 2px dashed rgb(15, 59, 155) !important;
+}
+
+.upload-icon {
+  max-width: 15rem;
+  margin: 2rem;
+}
+
+.button {
+  min-width: 200px !important;
+}
+
+.preview-textarea {
+  height: 25vh !important;
 }

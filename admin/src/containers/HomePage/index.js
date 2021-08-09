@@ -83,7 +83,7 @@ const HomePage = () => {
         <Row>
           <Textarea
             name="DataStringTextarea"
-            className="text-area"
+            className="textarea"
             disabled={true}
             value={dataString}
           />
