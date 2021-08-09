@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = {
+  index: async (ctx) => {
+    ctx.send({
+      message: 'ok'
+    });
+  },
+
   getRawData: async (ctx) => {
     const responseData = [];
     // If source is all, fetch all data, else fetch specific source data.
