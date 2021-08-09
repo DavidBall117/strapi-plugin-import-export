@@ -2,9 +2,6 @@ import React, { memo } from "react";
 import pluginId from "../pluginId";
 import { HeaderNav, PluginHeader } from "strapi-helper-plugin";
 
-const getUrl = (to) =>
-  to ? `/plugins/${pluginId}/${to}` : `/plugins/${pluginId}`;
-
 const Navigation = () => {
   return (
     <>
@@ -16,11 +13,11 @@ const Navigation = () => {
         links={[
           {
             name: 'Export Data',
-            to: getUrl(),
+            to: `/plugins/${pluginId}`,
           },
           {
             name: 'Import Data',
-            to: getUrl('import'),
+            to: `/plugins/${pluginId}/import`,
           },
         ]}
       />
